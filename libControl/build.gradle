@@ -1,7 +1,11 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    id 'maven-publish'
 }
+
+group = 'com.github.qzc0537'
+version = '1.0.3'
 
 android {
     namespace 'com.rhizo.libcontrol'
@@ -9,6 +13,8 @@ android {
 
     defaultConfig {
         minSdk 24
+        versionCode 3
+        versionName "1.0.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -30,7 +36,6 @@ android {
 }
 
 dependencies {
-
     testImplementation libs.junit
     androidTestImplementation libs.androidx.test.ext.junit
     androidTestImplementation libs.espresso.core
@@ -43,4 +48,18 @@ dependencies {
     api project(":libCall")
     api project(":libEntity")
     api project(":libTemisdk")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.qzc0537'
+                artifactId = 'controlLibrary'
+                version = '1.0.3'
+            }
+        }
+    }
 }
