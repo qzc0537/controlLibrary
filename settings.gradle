@@ -1,0 +1,29 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        //本地Maven仓库地址
+        maven {
+            url 'file://D://AndroidStudioProjects//controlLibrary//repository'
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "controlLibrary"
+include ':app'
+include ':libControl'
+include ':libCommon'
+include ':libBluetooth'
+include ':libTcp'
+include ':libCall'
+include ':libEntity'
+include ':libTemisdk'
+
