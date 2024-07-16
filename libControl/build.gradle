@@ -13,8 +13,8 @@ android {
 
     defaultConfig {
         minSdk 24
-        versionCode 5
-        versionName "1.0.5"
+        versionCode 6
+        versionName "1.0.6"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -62,7 +62,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.qzc0537'
                 artifactId = 'controlLibrary'
-                version = '1.0.3'
+                version = '1.0.6'
             }
         }
     }
