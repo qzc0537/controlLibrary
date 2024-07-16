@@ -31,7 +31,6 @@ import com.rhizo.common.util.TimeUtil
 import com.rhizo.libcall.ui.CallActivity
 import com.rhizo.libcontrol.bean.RegisterCloudBean
 import com.rhizo.libcontrol.bean.VersionBean
-import com.rhizo.libcontrol.service.ControlService
 import com.rhizo.libcontrol.util.CLog
 import com.rhizo.libcontrol.util.MessageUtil
 import com.rhizo.libcontrol.util.RobotUtil
@@ -514,7 +513,6 @@ class ControlPlugin(private val mContext: AppCompatActivity) : ConnectWifiUtils.
         BluetoothServer.getInstance().removeCallback(this)?.stop()
         mConnectWifiUtils?.unregisterReceiver()
         mHandler.removeCallbacksAndMessages(null)
-        mContext.sendBroadcast(Intent(ControlService.STOP_SERVICE))
         mContext.unregisterReceiver(mCallReceiver)
 
         Robot.getInstance().removeOnBeWithMeStatusChangedListener(this)
