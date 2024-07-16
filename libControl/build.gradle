@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.qzc0537'
-version = '1.0.3'
+version = '1.0.8'
 
 android {
     namespace 'com.rhizo.libcontrol'
@@ -13,8 +13,8 @@ android {
 
     defaultConfig {
         minSdk 24
-        versionCode 7
-        versionName "1.0.7"
+        versionCode 8
+        versionName "1.0.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -62,7 +62,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.qzc0537'
                 artifactId = 'controlLibrary'
-                version = '1.0.6'
+                version = '1.0.8'
             }
         }
     }
