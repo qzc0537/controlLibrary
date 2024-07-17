@@ -28,7 +28,7 @@ import com.rhizo.bluetooth.util.ConnectWifiUtils
 import com.rhizo.common.util.AppUtil
 import com.rhizo.common.util.GsonUtil
 import com.rhizo.common.util.TimeUtil
-import com.rhizo.libcall.ui.CallActivity
+import com.rhizo.libcontrol.ui.CallActivity
 import com.rhizo.libcontrol.bean.RegisterCloudBean
 import com.rhizo.libcontrol.bean.VersionBean
 import com.rhizo.libcontrol.util.CLog
@@ -56,7 +56,7 @@ import com.rhizo.libtcp.netty.NettyTcpClientUICallback
 import com.rhizo.libtcp.netty.NettyTcpServer
 import com.rhizo.libtcp.netty.NettyTcpServerUICallback
 import com.rhizo.libtcp.netty.TcpConstants
-import com.rhizo.libtcp.netty.TcpManager
+import com.rhizo.libcontrol.netty.TcpManager
 import com.robotemi.sdk.BatteryData
 import com.robotemi.sdk.Robot
 import com.robotemi.sdk.constants.Page
@@ -778,9 +778,9 @@ class ControlPlugin(private val mContext: AppCompatActivity) : ConnectWifiUtils.
 
             TcpConstants.LocalCommand.CODE_VIDEO_CALL -> {
                 mContext.startActivity(Intent(mContext, CallActivity::class.java))
-//                val cmd = "adb root; adb wait-for-device; adb shell ${mContext.packageName}/com.rhizo.libcall.ui.CallActivity"
+//                val cmd = "adb root; adb wait-for-device; adb shell ${mContext.packageName}/com.rhizo.libcontrol.ui.CallActivity"
 //                executeAdb(cmd)
-//                executeAdb("am start -n ${mContext.packageName}/com.rhizo.libcall.ui.CallActivity")
+//                executeAdb("am start -n ${mContext.packageName}/com.rhizo.libcontrol.ui.CallActivity")
             }
 
             TcpConstants.LocalCommand.CODE_GET_CURRENT_FLOOR->{

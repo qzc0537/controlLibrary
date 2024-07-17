@@ -21,7 +21,7 @@ import com.rhizo.libentity.UpdateLocationResult
 import com.rhizo.libentity.UpdateMapName
 import com.rhizo.libtcp.netty.NettyTcpServer
 import com.rhizo.libtcp.netty.TcpConstants
-import com.rhizo.libtcp.netty.TcpManager
+import com.rhizo.libcontrol.netty.TcpManager
 import com.robotemi.sdk.map.Floor
 import com.robotemi.sdk.map.MapDataModel
 

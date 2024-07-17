@@ -8,9 +8,6 @@ import android.content.IntentFilter
 import android.os.Build
 import android.os.IBinder
 import com.rhizo.common.util.LogUtil.logd
-import com.rhizo.libcall.webrtc.WebrtcManager
-import com.rhizo.libcall.ui.CallActivity
-import org.webrtc.VideoTrack
 
 class ControlService : Service() {
 

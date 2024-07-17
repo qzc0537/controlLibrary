@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.qzc0537'
-version = '1.0.8'
+version = '1.0.9'
 
 android {
     namespace 'com.rhizo.libcontrol'
@@ -13,11 +13,12 @@ android {
 
     defaultConfig {
         minSdk 24
-        versionCode 8
-        versionName "1.0.8"
+        versionCode 9
+        versionName "1.0.9"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        buildConfigField 'String', 'SDK_SERVICE_CLASS_NAME', '\"com.roboteam.teamy.sdk.SdkService\"'
     }
 
     buildTypes {
@@ -46,12 +47,14 @@ dependencies {
     implementation libs.core.ktx
     implementation libs.appcompat
     implementation libs.material
-    api project(":libCommon")
-    api project(":libBluetooth")
-    api project(":libTcp")
-    api project(":libCall")
-    api project(":libEntity")
-    api project(":libTemisdk")
+    api libs.commons.lang3
+    api libs.gson
+    api libs.permissionx
+    api libs.immersionbar
+    api libs.flexbox
+    api libs.netty.all
+    api libs.google.webrtc
+    api libs.okhttp
 }
 
 afterEvaluate {
@@ -62,7 +65,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.qzc0537'
                 artifactId = 'controlLibrary'
-                version = '1.0.8'
+                version = '1.0.9'
             }
         }
     }
