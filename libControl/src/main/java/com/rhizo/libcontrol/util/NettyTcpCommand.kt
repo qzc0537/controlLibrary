@@ -1,6 +1,6 @@
 package com.rhizo.libcontrol.util
 
-import com.rhizo.libtcp.bean.NettyTcpEncode
+import com.rhizo.libcontrol.bean.NettyTcpEncode
 import java.nio.ByteBuffer
 import java.util.concurrent.atomic.AtomicInteger
 

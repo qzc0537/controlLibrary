@@ -1,9 +1,6 @@
 package com.rhizo.libcontrol.util;
 
 
-import com.rhizo.libtcp.bean.PackageSplitterDto;
-import com.rhizo.libtcp.util.BytesUtil;
-
 public class PackageSplitUtil {
 
     private static final byte[] FFFF = new byte[]{-1, -1};
@@ -23,11 +20,11 @@ public class PackageSplitUtil {
      */
     public static PackageSplitterDto doSplit(byte[] source, int from) {
 
-        int startIndex = com.rhizo.libtcp.util.BytesUtil.indexOf(source, FFFF, from);
+        int startIndex = com.rhizo.libcontrol.util.BytesUtil.indexOf(source, FFFF, from);
         if (startIndex == -1) {
             return null;
         }
-        int endIndex = com.rhizo.libtcp.util.BytesUtil.indexOf(source, FF, startIndex + FFFF.length);
+        int endIndex = com.rhizo.libcontrol.util.BytesUtil.indexOf(source, FF, startIndex + FFFF.length);
         if (endIndex == -1) {
             return null;
         }
@@ -38,7 +35,7 @@ public class PackageSplitUtil {
         //endIndex要加1是因为要把结束符的FF也加进来
         int offset = endIndex + 1;
         PackageSplitterDto back = new PackageSplitterDto();
-        back.setOut(com.rhizo.libtcp.util.BytesUtil.subBytes(source, startIndex, offset));
+        back.setOut(com.rhizo.libcontrol.util.BytesUtil.subBytes(source, startIndex, offset));
         back.setNext(BytesUtil.subBytes(source, offset));
         return back;
     }

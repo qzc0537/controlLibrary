@@ -18,7 +18,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "controlLibrary"
-include ':app'
 include ':libControl'
 //include ':libCommon'
 //include ':libBluetooth'

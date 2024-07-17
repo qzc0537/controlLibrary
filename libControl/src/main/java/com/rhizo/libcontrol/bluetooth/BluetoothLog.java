@@ -2,7 +2,8 @@ package com.rhizo.libcontrol.bluetooth;
 
 import android.util.Log;
 
-import com.rhizo.bluetooth.BuildConfig;
+import com.rhizo.libcontrol.BuildConfig;
+
 
 public class BluetoothLog {
 

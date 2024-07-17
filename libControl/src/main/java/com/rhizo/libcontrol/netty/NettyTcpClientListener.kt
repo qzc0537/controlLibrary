@@ -1,4 +1,4 @@
-package com.rhizo.libtcp.netty
+package com.rhizo.libcontrol.netty
 
 interface NettyTcpClientListener {
     fun onConnectStatusCallback(statusCode: Int, message: String)

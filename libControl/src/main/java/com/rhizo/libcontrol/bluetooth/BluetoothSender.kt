@@ -1,9 +1,9 @@
-package com.rhizo.bluetooth.bluetooth
+package com.rhizo.libcontrol.bluetooth
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import com.google.gson.Gson
-import com.rhizo.bluetooth.bean.BluetoothMessage
+import com.rhizo.libcontrol.bean.BluetoothMessage
 
 object BluetoothSender {
     private val mGson by lazy { Gson() }

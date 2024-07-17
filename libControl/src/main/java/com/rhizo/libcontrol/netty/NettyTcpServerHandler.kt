@@ -1,7 +1,7 @@
-package com.rhizo.libtcp.netty
+package com.rhizo.libcontrol.netty
 
 import android.util.Log
-import com.rhizo.libtcp.util.XXByteArray
+import com.rhizo.libcontrol.util.XXByteArray
 import io.netty.channel.ChannelHandler
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.SimpleChannelInboundHandler

@@ -9,14 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/libBluetooth" />
-            <option value="$PROJECT_DIR$/libCall" />
-            <option value="$PROJECT_DIR$/libCommon" />
             <option value="$PROJECT_DIR$/libControl" />
-            <option value="$PROJECT_DIR$/libEntity" />
-            <option value="$PROJECT_DIR$/libTcp" />
-            <option value="$PROJECT_DIR$/libTemisdk" />
           </set>
         </option>
       </GradleProjectSettings>

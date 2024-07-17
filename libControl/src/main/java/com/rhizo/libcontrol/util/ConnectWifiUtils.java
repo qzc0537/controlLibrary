@@ -17,7 +17,7 @@ import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 
-import com.rhizo.bluetooth.bean.WifiBean;
+import com.rhizo.libcontrol.bean.WifiBean;
 
 import java.util.ArrayList;
 import java.util.List;

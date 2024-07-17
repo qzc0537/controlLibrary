@@ -1,10 +1,10 @@
-package com.rhizo.libtcp.netty
+package com.rhizo.libcontrol.netty
 
 import android.os.SystemClock
 import android.util.Log
-import com.rhizo.libtcp.util.NettyTcpCommand
-import com.rhizo.libtcp.util.PackageSplitter
-import com.rhizo.libtcp.util.XXByteArray
+import com.rhizo.libcontrol.util.NettyTcpCommand
+import com.rhizo.libcontrol.util.PackageSplitter
+import com.rhizo.libcontrol.util.XXByteArray
 import io.netty.bootstrap.Bootstrap
 import io.netty.channel.Channel
 import io.netty.channel.ChannelFutureListener

@@ -1,14 +1,7 @@
 package com.rhizo.libcontrol.util;
 
 import android.util.Log;
-
-import com.rhizo.libtcp.bean.PackageSplitterDto;
-import com.rhizo.libtcp.util.CmdCalibrateUtil;
-import com.rhizo.libtcp.util.PackageSplitUtil;
-import com.rhizo.libtcp.util.XXByteArray;
-
 import java.util.List;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;
 import io.netty.buffer.Unpooled;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.rhizo.bluetooth.bluetooth;
+package com.rhizo.libcontrol.bluetooth;
 
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
@@ -24,8 +24,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import com.rhizo.bluetooth.BluetoothConst;
-import com.rhizo.bluetooth.util.BluetoothLog;
+import com.rhizo.bluetooth.bluetooth.OnBluetoothUICallback;
 
 import java.io.IOException;
 import java.io.InputStream;

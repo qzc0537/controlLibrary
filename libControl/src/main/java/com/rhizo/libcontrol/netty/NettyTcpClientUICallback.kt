@@ -1,4 +1,4 @@
-package com.rhizo.libtcp.netty
+package com.rhizo.libcontrol.netty
 
 interface NettyTcpClientUICallback {
     fun onTcpConnected() {}

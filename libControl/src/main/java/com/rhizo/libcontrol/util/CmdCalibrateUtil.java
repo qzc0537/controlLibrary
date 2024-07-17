@@ -1,6 +1,6 @@
 package com.rhizo.libcontrol.util;
 
-import com.rhizo.libtcp.util.BytesUtil;
+import com.rhizo.libcontrol.util.BytesUtil;
 
 /**
  * 指令校准工具
@@ -53,7 +53,7 @@ public class CmdCalibrateUtil {
      * @return 转换后的数据
      */
     private static byte[] doCalibrate(byte[] src, byte[] target1, byte[] replacement1, byte[] target2, byte[] replacement2) {
-        if (!com.rhizo.libtcp.util.BytesUtil.contains(src, target1) && !com.rhizo.libtcp.util.BytesUtil.contains(src, target2)) {
+        if (!com.rhizo.libcontrol.util.BytesUtil.contains(src, target1) && !com.rhizo.libcontrol.util.BytesUtil.contains(src, target2)) {
             return src;
         } else {
             //第一次校准
@@ -71,13 +71,13 @@ public class CmdCalibrateUtil {
         byte[] save = new byte[0];
         byte[] temp;
         while (true) {
-            index = com.rhizo.libtcp.util.BytesUtil.indexOf(src, target);
+            index = com.rhizo.libcontrol.util.BytesUtil.indexOf(src, target);
             if (index == -1) {
-                save = com.rhizo.libtcp.util.BytesUtil.mergeBytes(save, src);
+                save = com.rhizo.libcontrol.util.BytesUtil.mergeBytes(save, src);
                 break;
             }
-            temp = com.rhizo.libtcp.util.BytesUtil.subBytes(src, 0, index);
-            save = com.rhizo.libtcp.util.BytesUtil.mergeBytes(save, temp, replacement);
+            temp = com.rhizo.libcontrol.util.BytesUtil.subBytes(src, 0, index);
+            save = com.rhizo.libcontrol.util.BytesUtil.mergeBytes(save, temp, replacement);
             src = BytesUtil.subBytes(src, index + target.length);
         }
         return save;
