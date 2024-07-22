@@ -1,6 +1,6 @@
 @file:Suppress("UNREACHABLE_CODE")
 
-package com.rhizo.common.util
+package com.rhizo.libcontrol.util
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager

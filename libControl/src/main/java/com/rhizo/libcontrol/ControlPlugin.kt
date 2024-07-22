@@ -20,10 +20,9 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.permissionx.guolindev.PermissionX
-import com.rhizo.bluetooth.bluetooth.OnBluetoothUICallback
-import com.rhizo.common.util.AppUtil
-import com.rhizo.common.util.GsonUtil
-import com.rhizo.libcall.ui.CallActivity
+import com.rhizo.libcontrol.bluetooth.OnBluetoothUICallback
+import com.rhizo.libcontrol.util.AppUtil
+import com.rhizo.libcontrol.call.ui.CallActivity
 import com.rhizo.libcontrol.bean.BaseMessage
 import com.rhizo.libcontrol.bean.BatteryBean
 import com.rhizo.libcontrol.bean.BeWithMeStatus
@@ -37,6 +36,7 @@ import com.rhizo.libcontrol.bean.GotoLocationStatus
 import com.rhizo.libcontrol.bean.PositionBean
 import com.rhizo.libcontrol.bean.RegisterCloudBean
 import com.rhizo.libcontrol.bean.ResetMap
+import com.rhizo.libcontrol.bean.RobotTask
 import com.rhizo.libcontrol.bean.SaveLocation
 import com.rhizo.libcontrol.bean.SkidJoy
 import com.rhizo.libcontrol.bean.TiltAngle
@@ -56,6 +56,7 @@ import com.rhizo.libcontrol.util.MessageUtil
 import com.rhizo.libcontrol.util.RobotUtil
 import com.rhizo.libcontrol.netty.TcpManager
 import com.rhizo.libcontrol.util.ConnectWifiUtils
+import com.rhizo.libcontrol.util.GsonUtil
 import com.rhizo.libcontrol.util.TimeUtil
 import com.robotemi.sdk.BatteryData
 import com.robotemi.sdk.Robot
@@ -91,7 +92,9 @@ class ControlPlugin(private val mContext: AppCompatActivity) : ConnectWifiUtils.
     private val mThreadPool = Executors.newFixedThreadPool(3)
     private val CODE_GET_WIFI_INFO = 1
     private val CODE_LISTEN_BLUETOOTH_ON = 2
-    private var mSp: SharedPreferences? = null
+    private var mRobotTask: RobotTask? = null
+    private var mLocationIndex = 0
+    private var mTaskIndex = 0
 
 
     private val mHandler = Handler(Looper.getMainLooper()) {
@@ -111,8 +114,7 @@ class ControlPlugin(private val mContext: AppCompatActivity) : ConnectWifiUtils.
     /**
      * 初始化
      */
-    fun init(androidVersion: String) {
-        mAndroidVersion = androidVersion
+    fun init() {
         if (isBluetoothEnable()) {
             whetherBluetoothOn()
         } else {
@@ -125,7 +127,6 @@ class ControlPlugin(private val mContext: AppCompatActivity) : ConnectWifiUtils.
      * 初始化
      */
     private fun innerInit() {
-        mSp = mContext.getSharedPreferences("ControlPlugin", Context.MODE_PRIVATE)
         mWifiManager =
             mContext.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
 
@@ -789,6 +790,12 @@ class ControlPlugin(private val mContext: AppCompatActivity) : ConnectWifiUtils.
                 }
             }
 
+            TcpConstants.LocalCommand.CODE_SEND_TASK -> {
+                GsonUtil.fromJson<RobotTask>(bodyJson)?.let {
+                    mRobotTask = it
+                    Robot.getInstance().goTo(it.taskLocations[0].locationName)
+                }
+            }
         }
     }
 
@@ -843,6 +850,24 @@ class ControlPlugin(private val mContext: AppCompatActivity) : ConnectWifiUtils.
         if (status == GotoLocationStatus.START || status == GotoLocationStatus.COMPLETE) {
             val bean = GotoLocationStatus(location, status, descriptionId, description)
             MessageUtil.sendGotoLocationStatus(mRobotSerialNumber, bean, mBluetoothDevice)
+            if (status == GotoLocationStatus.COMPLETE) {
+                mRobotTask?.let {
+                    mLocationIndex++
+                    if (mLocationIndex < it.taskLocations.size) {
+                        Robot.getInstance().goTo(it.taskLocations[mLocationIndex].locationName)
+                    } else {
+                        mTaskIndex++
+                        if (mTaskIndex < it.executionTime) {
+                            mLocationIndex = 0
+                            Robot.getInstance().goTo(it.taskLocations[mLocationIndex].locationName)
+                        } else {
+                            mLocationIndex = 0
+                            mTaskIndex = 0
+                            mRobotTask = null
+                        }
+                    }
+                }
+            }
         }
     }
 

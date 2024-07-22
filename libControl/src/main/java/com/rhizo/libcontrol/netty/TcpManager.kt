@@ -3,14 +3,6 @@ package com.rhizo.libcontrol.netty
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
-import com.rhizo.libtcp.netty.NettyTcpClient
-import com.rhizo.libtcp.netty.NettyTcpClientListener
-import com.rhizo.libtcp.netty.NettyTcpClientUICallback
-import com.rhizo.libtcp.netty.NettyTcpCloudClient
-import com.rhizo.libtcp.netty.NettyTcpServer
-import com.rhizo.libtcp.netty.NettyTcpServerListener
-import com.rhizo.libtcp.netty.NettyTcpServerUICallback
-import com.rhizo.libtcp.netty.TcpConstants
 import io.netty.channel.Channel
 
 object TcpManager {

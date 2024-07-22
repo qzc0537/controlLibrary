@@ -1,4 +1,4 @@
-package com.rhizo.common.util
+package com.rhizo.libcontrol.util
 
 import android.app.Activity
 import android.view.View

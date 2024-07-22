@@ -1,7 +1,6 @@
 package com.rhizo.libcontrol.util
 
 import android.bluetooth.BluetoothDevice
-import com.rhizo.common.util.GsonUtil
 import com.rhizo.libcontrol.bean.BaseMessage
 import com.rhizo.libcontrol.bean.BatteryBean
 import com.rhizo.libcontrol.bean.BeWithMeStatus

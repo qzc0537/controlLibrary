@@ -12,6 +12,7 @@ import android.util.Log
 
 import androidx.annotation.NonNull
 import androidx.annotation.UiThread
+import com.rhizo.libcontrol.BuildConfig
 
 import com.robotemi.sdk.constants.SdkConstants
 

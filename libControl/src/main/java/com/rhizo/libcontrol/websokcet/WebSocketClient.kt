@@ -1,4 +1,4 @@
-package com.rhizo.libtcp.websokcet
+package com.rhizo.libcontrol.websokcet
 
 import androidx.annotation.Nullable
 import okhttp3.OkHttpClient
@@ -15,7 +15,7 @@ class WebSocketClient(private val url: String) {
     private var webSocket: WebSocket? = null
     private var client: OkHttpClient? = null
 
-    fun start(listener: com.rhizo.libtcp.websokcet.WebSocketListener) {
+    fun start(listener: com.rhizo.libcontrol.websokcet.WebSocketListener) {
         client = OkHttpClient.Builder()
             .pingInterval(10, TimeUnit.SECONDS) // 设置ping消息发送的间隔
             .build()

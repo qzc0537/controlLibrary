@@ -1,4 +1,4 @@
-package com.rhizo.libtcp.websokcet
+package com.rhizo.libcontrol.websokcet
 
 import okhttp3.WebSocket
 

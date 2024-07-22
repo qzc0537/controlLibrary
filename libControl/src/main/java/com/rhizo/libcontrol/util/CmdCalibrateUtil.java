@@ -1,6 +1,5 @@
 package com.rhizo.libcontrol.util;
 
-import com.rhizo.libcontrol.util.BytesUtil;
 
 /**
  * 指令校准工具

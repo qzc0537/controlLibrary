@@ -1,4 +1,4 @@
-package com.rhizo.common.util
+package com.rhizo.libcontrol.util
 
 import com.google.gson.Gson
 import com.google.gson.JsonParser

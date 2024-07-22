@@ -19,9 +19,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "controlLibrary"
 include ':libControl'
-//include ':libCommon'
-//include ':libBluetooth'
-//include ':libTcp'
-//include ':libCall'
-//include ':libEntity'
-//include ':libTemisdk'

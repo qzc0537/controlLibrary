@@ -1,4 +1,4 @@
-package com.rhizo.libcall.ui
+package com.rhizo.libcontrol.call.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -11,10 +11,10 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
-import com.rhizo.common.util.ClickExt.setOnSafeClick
-import com.rhizo.libcall.R
-import com.rhizo.libcall.databinding.ActivityCallBinding
-import com.rhizo.libcall.webrtc.WebrtcManager
+import com.rhizo.libcontrol.R
+import com.rhizo.libcontrol.call.webrtc.WebrtcManager
+import com.rhizo.libcontrol.databinding.ActivityCallBinding
+import com.rhizo.libcontrol.util.ClickExt.setOnSafeClick
 import org.webrtc.SurfaceViewRenderer
 import org.webrtc.VideoTrack
 

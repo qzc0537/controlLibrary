@@ -1,14 +1,14 @@
 package com.rhizo.libcontrol.util
 
 import androidx.annotation.WorkerThread
-import com.rhizo.libentity.DeleteLocation
-import com.rhizo.libentity.GotoLocation
-import com.rhizo.libentity.SaveLocation
-import com.rhizo.libentity.SkidJoy
-import com.rhizo.libentity.SpeedLevel
-import com.rhizo.libentity.TiltAngle
-import com.rhizo.libentity.TurnBy
-import com.rhizo.libentity.UpdateLocation
+import com.rhizo.libcontrol.bean.DeleteLocation
+import com.rhizo.libcontrol.bean.GotoLocation
+import com.rhizo.libcontrol.bean.SaveLocation
+import com.rhizo.libcontrol.bean.SkidJoy
+import com.rhizo.libcontrol.bean.SpeedLevel
+import com.rhizo.libcontrol.bean.TiltAngle
+import com.rhizo.libcontrol.bean.TurnBy
+import com.rhizo.libcontrol.bean.UpdateLocation
 import com.robotemi.sdk.Robot
 import com.robotemi.sdk.constants.Page
 import com.robotemi.sdk.constants.SdkConstants

@@ -2,10 +2,11 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
     id 'maven-publish'
+    id 'kotlin-parcelize'
 }
 
 group = 'com.github.qzc0537'
-version = '1.1.0'
+version = '1.1.1'
 
 android {
     namespace 'com.rhizo.libcontrol'
@@ -14,7 +15,7 @@ android {
     defaultConfig {
         minSdk 24
         versionCode 10
-        versionName "1.1.0"
+        versionName "1.1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -35,8 +36,14 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
+        aidl(true)
         dataBinding true
         buildConfig true
+    }
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/aidl']
+        }
     }
 }
 
@@ -44,17 +51,16 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.test.ext.junit
     androidTestImplementation libs.espresso.core
-    implementation libs.core.ktx
-    implementation libs.appcompat
-    implementation libs.material
-    api libs.commons.lang3
-    api libs.gson
-    api libs.permissionx
-    api libs.immersionbar
-    api libs.flexbox
-    api libs.netty.all
-    api libs.google.webrtc
-    api libs.okhttp
+    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.8.0"
+    implementation "org.apache.commons:commons-lang3:3.12.0"
+    api "com.google.code.gson:gson:2.8.5"
+    api "com.guolindev.permissionx:permissionx:1.7.1"
+    api "com.google.android:flexbox:2.0.0"
+    api "io.netty:netty-all:4.1.52.Final"
+    api "org.webrtc:google-webrtc:1.0.28513"
+    api "com.squareup.okhttp3:okhttp:4.10.0"
 }
 
 afterEvaluate {
@@ -65,7 +71,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.qzc0537'
                 artifactId = 'controlLibrary'
-                version = '1.1.0'
+                version = '1.1.1'
             }
         }
     }

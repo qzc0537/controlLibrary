@@ -1,4 +1,4 @@
-package com.rhizo.bluetooth.bluetooth
+package com.rhizo.libcontrol.bluetooth
 
 import android.bluetooth.BluetoothDevice
 

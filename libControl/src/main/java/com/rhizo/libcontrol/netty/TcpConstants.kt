@@ -51,6 +51,7 @@ interface TcpConstants {
         const val CODE_POSITION_CHANGED = 7016 //当前位置改变
         const val CODE_VIDEO_CALL = 7017 //视频通话
         const val CODE_GET_CURRENT_FLOOR = 7018 //获取楼层
+        const val CODE_SEND_TASK = 7019 //发送任务
     }
 
     object LOCATION {
