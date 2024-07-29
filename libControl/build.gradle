@@ -5,17 +5,12 @@ plugins {
     id 'kotlin-parcelize'
 }
 
-group = 'com.github.qzc0537'
-version = '1.1.2'
-
 android {
     namespace 'com.rhizo.libcontrol'
     compileSdk 33
 
     defaultConfig {
         minSdk 24
-        versionCode 12
-        versionName "1.1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -29,11 +24,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     buildFeatures {
         aidl(true)
@@ -63,50 +58,15 @@ dependencies {
     api "com.squareup.okhttp3:okhttp:4.10.0"
 }
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            // Creates a Maven publication called "release".
-//            release(MavenPublication) {
-//                from components.release
-//                groupId = 'com.github.qzc0537'
-//                artifactId = 'controlLibrary'
-//                version = '1.1.1'
-//            }
-//        }
-//    }
-//}
-
-//maven-publish 插件的配置
-// publishing 用于定义项目的发布相关配置
-publishing {
-    // 配置maven 仓库
-    repositories { RepositoryHandler handler ->
-        handler.mavenLocal()  // 发布到默认的 本地maven 仓库 ，路径： USER_HOME/.m2/repository/  或 setting.xml中配置的路径
-    }
-
-    // publications 用于定义发布任务的配置块
-    publications {
-        // 这个 aarAndroid 可以随便填，只是一个任务名字而已(如果有多渠道，整段在下面多复制一份)
-        // MavenPublication必须有，这个是调用的任务类
-        aarAndroid(MavenPublication) {
-            // 这里头是artifacts的配置信息，不填会采用默认的
-            groupId = "com.github.qzc0537"
-            artifactId = "controlLibrary"
-            version = "1.1.2"
-
-            // 增加上传源码的 task
-//            artifact sourceJar
-            // 必须有这个 否则不会上传AAR包  将bundleReleaseAar任务的单个输出文件作为发布的AAR文件。这样，该AAR文件就会成为 MavenPublication 的 artifact 并进行发布
-            afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
+afterEvaluate {
+    android.libraryVariants.each {variant->
+        publishing.publications.create(variant.name,MavenPublication){
+            from components.findByName(variant.name)
+            groupId = 'com.github.qzc0537'//自定义
+            artifactId = 'controlLibrary'//自定义
+            version = '1.1.3'//自定义
         }
     }
-}
-
-// 增加上传源码的task
-task sourceJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    archiveClassifier = "sources"
 }
 
 
